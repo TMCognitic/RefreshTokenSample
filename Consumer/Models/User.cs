@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Consumer.Models
+{
+    internal class User
+    {
+        public Guid Id { get; }
+        public string Nom { get; }
+        public string Prenom { get; }
+        public string Email { get; }
+        public string Passwd { get; }
+        public string? Token { get; set; }
+        public string? RefreshToken { get; set; }
+
+        public User(Guid id, string nom, string prenom, string email, string passwd)
+        {
+            Id = id;
+            Nom = nom;
+            Prenom = prenom;
+            Email = email;
+            Passwd = passwd;
+        }
+    }
+}
