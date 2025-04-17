@@ -117,8 +117,8 @@ public partial class Worker : BackgroundService
         {
             client.BaseAddress = new Uri("https://localhost:7085/");
 
-            //Récupération de l'utilisateur
-            using (HttpResponseMessage responseMessage = await client.PostAsJsonAsync("api/auth/login", new { Email = "john.doe@test.be", Passwd = "Test1234=" }, stoppingToken))
+            //Récupération les nouveaux token
+            using (HttpResponseMessage responseMessage = await client.PostAsJsonAsync("api/auth/refresh", new { Token = oldToken, RefreshToken = oldRefreshToken }, stoppingToken))
             {
                 responseMessage.EnsureSuccessStatusCode();
 
